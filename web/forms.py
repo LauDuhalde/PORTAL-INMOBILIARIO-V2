@@ -5,7 +5,7 @@ from .models import Usuario, SolicitudArriendo
 class UsuarioRegistroForm(UserCreationForm):
     class Meta:
         model = Usuario
-        fields = ('username', 'first_name', 'last_name', 'email', 'rut', 'direccion', 'telefono', 'tipo_usuario')
+        fields = ('username', 'first_name', 'last_name', 'password','email', 'rut', 'direccion', 'telefono', 'tipo_usuario')
 
 
 class SolicitudArriendoForm(forms.ModelForm):

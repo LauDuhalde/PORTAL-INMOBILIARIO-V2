@@ -1,0 +1,52 @@
++------------------+         +------------------+
+|     Usuario      |         |     Solicitud    |
++------------------+         +------------------+
+| id               |         | id               |
+| username         |-------->| arrendatario_id  |
+| password         |         | inmueble_id      |
+| rut              |         | mensaje          |
+| nombres          |         +------------------+
+| apellidos        |					^
+| direccion        |					|
+| telefono         |					|
+| tipo_usuario     |					|
+| correo_electronico|					|
++------------------+					|
+        |								|
+        |								|
+        |   +------------------+		|	
+        +-->|     Inmueble     |--------+		
+        |   +------------------+		
+        |   | id               |
+        |   | nombre           |
+        |   | direccion        |
+        |   | comuna_id        |
+        |   | tipo_inmueble    |
+        |   | precio           |
+        |   | descripcion      |
+        |   | m2_construidos   |
+        |   | m2_terreno       |
+        |   | cantidad_estacionamientos|
+        |   | cantidad_habitaciones  |
+        |   | cantidad_banios  |
+        |   | imagen           |
+        |   | disponible       |
+        |   | arrendador_id    |
+        |   +------------------+
+        |
+        |
+        |   +------------------+
+        +-->|     Comuna       |
+            +------------------+
+            | id               |
+            | nombre           |
+            | region_id        |
+            +------------------+
+                    |
+                    |
+                    |   +------------------+
+                    +-->|     Region       |
+                        +------------------+
+                        | id               |
+                        | nombre           |
+                        +------------------+

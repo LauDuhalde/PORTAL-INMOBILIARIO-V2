@@ -1,0 +1,24 @@
+Comuna: Lampa
+Nombre del inmueble: Linda Parcela
+Descripción: Parcela ubicada en lindo sector de Lampa
+
+Comuna: Las Condes
+Nombre del inmueble: Departamento Estocolmo Id: 125848
+Descripción: Departamento en arriendo, ubicado en la comuna de Las Condes, con una superficie construida de 125m2
+
+Comuna: Las Condes
+Nombre del inmueble: Departamento Single B Nuevo Con 1d + 1b
+Descripción: Dpto cuenta con; cocina integrada y equipada, con refrigerador, freezer, microondas, horno eléctrico
+
+Comuna: Providencia
+Nombre del inmueble: Casa Acogedora
+Descripción: Casa espaciosa con jardín
+
+Comuna: Providencia
+Nombre del inmueble: Departamento Moderno
+Descripción: Departamento con excelente vista
+
+Comuna: Quilicura
+Nombre del inmueble: Casa Avenida Lo Cruzat Id: 100820
+Descripción: Hermosa casa en gran ubicación
+

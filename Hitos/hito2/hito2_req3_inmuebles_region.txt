@@ -1,0 +1,24 @@
+Región: Metropolitana de Santiago
+Inmueble: Linda Parcela
+Descripción: Parcela ubicada en lindo sector de Lampa
+
+Región: Metropolitana de Santiago
+Inmueble: Departamento Estocolmo Id: 125848
+Descripción: Departamento en arriendo, ubicado en la comuna de Las Condes, con una superficie construida de 125m2
+
+Región: Metropolitana de Santiago
+Inmueble: Departamento Single B Nuevo Con 1d + 1b
+Descripción: Dpto cuenta con; cocina integrada y equipada, con refrigerador, freezer, microondas, horno eléctrico
+
+Región: Metropolitana de Santiago
+Inmueble: Casa Acogedora
+Descripción: Casa espaciosa con jardín
+
+Región: Metropolitana de Santiago
+Inmueble: Departamento Moderno
+Descripción: Departamento con excelente vista
+
+Región: Metropolitana de Santiago
+Inmueble: Casa Avenida Lo Cruzat Id: 100820
+Descripción: Hermosa casa en gran ubicación
+

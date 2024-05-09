@@ -35,9 +35,9 @@ def index(request):
     if region_id:
         selected_region = Region.objects.get(pk=region_id)
         if not comuna_id:
-            inmuebles = Inmueble.objects.filter(comuna__region=selected_region)
+            inmuebles = Inmueble.objects.filter(comuna__region=selected_region, disponible=True)
         else:
-            inmuebles = Inmueble.objects.filter(comuna_id=comuna_id)
+            inmuebles = Inmueble.objects.filter(comuna_id=comuna_id, disponible=True)
     
     return render(request, 'index.html', {'regiones': regiones, 'comunas': comunas, 'inmuebles': inmuebles, 'selected_region': selected_region})
 
