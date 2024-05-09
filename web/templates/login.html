@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<section id="login" class="container p-5 text-center border rounded mb-5">
+  <div class="mx-auto" style="max-width: 400px;">
+    {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong>
+      {% for field in form %}
+          {% for error in field.errors %}
+              {{ error }}
+          {% endfor %}
+      {% endfor %}
+      {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+              {{ error }}
+          {% endfor %}
+      {% endif %}
+  </div>
+    {% endif %} 
+    {% if next %} 
+      {% if user.is_authenticated %}
+      <div class="container text-center">
+        <p>
+          Su cuenta no tiene acceso a esta página. Para continuar, inicie sesión con una
+          cuenta que tenga acceso.
+        </p>
+      </div>
+      {% else %}
+      <div class="container text-center">
+        <p>Por favor inicie sesión para ver esta página.</p>
+      </div>
+      {% endif %} 
+    {% endif %}
+    
+    <form class="form-signin" method="post">
+      {% csrf_token %}
+      <div class="mb-3 form-floating">
+        <input type="text" name="username" class="form-control" id="floatingUsername" placeholder="Username" required>
+        <label for="floatingUsername">Nombre de usuario</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-custom" type="submit">Iniciar sesión</button>
+      <a href="{% url 'registro_usuario' %}">Si aún no tienes cuenta, registrate aquí</a>
+    </form>
+  </div>
+</section>
+
+
+{% endblock %}

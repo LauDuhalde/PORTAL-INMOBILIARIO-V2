@@ -1,0 +1,39 @@
+<!-- registro_usuario.html -->
+{% extends 'base.html' %}
+
+{% block title %}Página de Inicio{% endblock %}
+
+{% block content %}  
+{% comment %} <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrarse</button>
+</form> {% endcomment %}
+
+<section id="registro_usuario" class="container p-5  border rounded mb-5">
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    <strong>Error:</strong>
+    {% for field in form %}
+        {% for error in field.errors %}
+            {{ error }}
+        {% endfor %}
+    {% endfor %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    {% endif %}
+</div>
+  {% endif %}
+  <h2>Registro de Usuario</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Registrarse</button>
+  </form>
+  </section>
+{% endblock %}
+
+
+

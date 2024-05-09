@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<section id="filtro" class="container p-3 border rounded mb-3">
+  <form method="GET" action="{% url 'index' %}">
+    <div class="form-row mb-3">
+      <div class="form-group col-md-4">
+        <label for="region">Región:</label>
+        <select id="region" name="region" class="form-control">
+          <option value="">Todas las regiones</option>
+          {% for region in regiones %}
+          <option value="{{ region.id }}">{{ region.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="comuna">Comuna:</label>
+        <select id="comuna" name="comuna" class="form-control">
+          <option value="">Todas las comunas</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-custom">Filtrar</button>
+  </form>
+</section>
+
+<section id="lista_inmuebles" class="container p-5 border rounded mb-5">
+  <div class="text-center">
+    <h1>Encuentra el mejor lugar para vivir</h1>
+  </div>
+  <div class="row">
+    {% if inmuebles %} {% for inmueble in inmuebles %}
+    <div class="col-12 col-lg-3 mb-4">
+      <div class="card h-100">
+        <img
+          src="{{ inmueble.imagen.url }}"
+          class="card-img-top img-fluid"
+          alt="{{ inmueble.nombre }}"
+          style="max-height: 150px"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ inmueble.nombre }}</h5>
+          <p class="card-text">{{ inmueble.comuna }}</p>
+          <p class="card-text" style="color: #8B4513;">${{ inmueble.precio }}</p>
+          <a
+            href="{% url 'detalle_inmueble' inmueble.id %}"
+            class="btn btn-custom mt-auto"
+            >Ver detalle</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="col-12 text-center">
+      <h3>No se encontraron inmuebles para la selección.</h3>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %} 
+{% block js %} 
+{% load static %}
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
