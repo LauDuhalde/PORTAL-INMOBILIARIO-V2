@@ -5,15 +5,14 @@
   <div style="background-color: #f4f5f7;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="col col-lg-10 mb-4 mb-lg-0">
           <div class="card mb-3" style="border-radius: .5rem;">
             <div class="row g-0">
-              <div class="col-md-4 text-center align-items-center text-white"
-                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; background-color: #8B4513;">
-                <h5 class="mt-5">{{user.first_name}}{{user.last_name}}</h5>
+              <div class="col-md-4 text-center align-items-center text-white bg-custom-perfil"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <h5 class="mt-5">{{user.first_name}} {{user.last_name}}</h5>
                 <p>RUT: {{user.rut}}</p>
                 <p>TIPO: {{user.tipo_usuario}}</p>
-                <!--<i class="far fa-edit mb-5"></i>-->
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -37,35 +36,8 @@
                         <h6>Telefono</h6>
                         <p class="text-muted">{{user.telefono}}</p>
                       </div>
+                      <a class="text-decoration-none text-muted" href="{% url 'editar_perfil' %}">Modificar datos <i class="far fa-edit mb-5"></i></a>
                   </div>
-
-                  {% if user.tipo_usuario == 'arrendatario' %}
-                  <h6 class='bg-custom text-white'>Solicitudes realizadas</h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-12 mb-3">
-                      {% for solicitud in solicitudes_arrendatario %}
-                        <li class="text-muted">{{ solicitud }} - {{solicitud.estado}}</li>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  {%else%}
-                  <h6 class='bg-custom text-white'>Inmuebles</h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-12 mb-3">
-                      <ul>
-                        {% for inmueble_y_solicitudes in inmuebles_y_solicitudes %}
-                          <li class="text-muted text-start">
-                            <a href="{% url 'detalle_inmueble' inmueble_y_solicitudes.inmueble.id %}">
-                              {{ inmueble_y_solicitudes.inmueble.nombre }}
-                            </a>
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                  </div>
-                  {%endif%}
                 </div>
               </div>
             </div>

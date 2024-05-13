@@ -11,27 +11,32 @@
 </form> {% endcomment %}
 
 <section id="registro_usuario" class="container p-5  border rounded mb-5">
-  {% if form.errors %}
-  <div class="alert alert-danger">
-    <strong>Error:</strong>
-    {% for field in form %}
-        {% for error in field.errors %}
-            {{ error }}
-        {% endfor %}
-    {% endfor %}
-    {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-            {{ error }}
-        {% endfor %}
+    <div class="mx-auto" style="max-width: 400px;">
+      {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong>
+      {% for field in form %}
+          {% for error in field.errors %}
+              {{ error }}
+          {% endfor %}
+      {% endfor %}
+      {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+              {{ error }}
+          {% endfor %}
+      {% endif %}
+  </div>
     {% endif %}
-</div>
-  {% endif %}
-  <h2>Registro de Usuario</h2>
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Registrarse</button>
-  </form>
+    
+      <form class="form-signin text-start" method="post">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">Registrate como cliente</h1>
+      
+        {{ form.as_p }}
+          
+        <button class="w-100 btn btn-lg btn-custom mb-3" type="submit">Registrarse</button>
+      </form>
+    </div>
   </section>
 {% endblock %}
 

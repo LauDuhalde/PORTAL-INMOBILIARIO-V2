@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="solicitudes" class="container p-5  border rounded mb-5">
+      <h3>Solicitudes de Arriendo:</h3>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+    {% for solicitud in solicitudes %}
+    <div class="card mb-3" style="max-width: 18rem;">
+      <div class="card-header my-3 fw-bold text-white {% if solicitud.estado == 'aceptada' %}bg-success{% elif solicitud.estado == 'pendiente' %}bg-warning{% elif solicitud.estado == 'rechazada' %}bg-danger{% else %}bg-secondary{% endif %}">{{solicitud.estado}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ solicitud }}</h5>
+        <P>{{solicitud.mensaje}}</P>
+        {% if solicitud.estado == 'pendiente'%}
+          <form method="post" action="{% url 'cambiar_estado_solicitud' solicitud.id%}">
+            {% csrf_token %}
+            <input type="hidden" name="nuevo_estado" value="cancelada">
+            <button class="btn btn-danger" type="submit">Cancelar Solicitud</button>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock %}

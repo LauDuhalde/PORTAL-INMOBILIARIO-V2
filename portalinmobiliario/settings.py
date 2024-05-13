@@ -59,7 +59,7 @@ ROOT_URLCONF = 'portalinmobiliario.urls'
 
 #Al iniciar o cerrar sesión lanzaba error
 LOGIN_URL='login'
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'mi_perfil'
 LOGOUT_REDIRECT_URL = 'index'
 
 

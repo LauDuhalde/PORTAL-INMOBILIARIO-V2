@@ -2,8 +2,8 @@
     <div class="container">
         <!-- Logo visible solo en navbar colapsado -->
         {% load static %}
-        <a class="navbar-brand d-lg-none rounded-circle p-2 bg-white" href={% url "index"%}>
-        <img src="{% static 'img/logo_pequenio.png' %}" alt="Logo" height="30">
+        <a class="navbar-brand p-2" href={% url "index"%}>
+        <img class="d-lg-none" src="{% static 'img/logo_pequenio.png' %}" alt="Logo" height="30"> Portal Inmobiliario
       </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +11,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'index' %}">Inmuebles disponibles</a>
+              </li>
+                {%if user.is_authenticated%}
                 <li class="nav-item">
-                    <a class="nav-link" href={% url "index"%}>Inicio</a>
+                  <a class="nav-link" aria-current="page" href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
+                {%endif%}
+                {% if user.is_authenticated and user.tipo_usuario == 'arrendador'%}
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'ingresar_inmueble' %}">Ingresar inmueble</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'solicitudes_arrendador' %}">Solicitudes</a>
+                </li>
+                {%endif%}
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 {% if user.is_authenticated %}
@@ -32,7 +45,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user"></i>
-                        Bienvenido
+                        Ingresar
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{% url 'login'%}">Iniciar Sesión</a></li>

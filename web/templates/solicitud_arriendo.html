@@ -7,13 +7,13 @@
       {% csrf_token %}
       <h1 class="h3 mb-3 fw-normal">Solicitud de arriendo</h1>
       <div class="mb-3 form-floating text-start">
-        <p>Inmueble: {{inmueble.nombre}}</p>
+        <p>Inmueble: {{ inmueble.nombre }}</p>
       </div>
       <div class="mb-3 form-floating text-start">
-        <p>Arriendo: ${{inmueble.precio}}</p>
+        <p>Arriendo: ${{ inmueble.precio }}</p>
       </div>
       <div class="mb-3 form-floating text-start">
-        <textarea name="message" class="form-control" id="message" placeholder="Mensaje"rows="5"></textarea>
+        <textarea name="message" class="form-control" id="message" placeholder="Mensaje" rows="5"></textarea>
         <label for="message">Mensaje</label>
       </div>
       <button type="submit" class="btn btn-custom">Enviar</button>

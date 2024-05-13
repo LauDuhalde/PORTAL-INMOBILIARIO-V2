@@ -4,6 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {%block head%}
+    {%endblock%}
 
     <!-- Bootstrap CSS -->
     <link
@@ -34,8 +36,10 @@
     {% endblock %} 
 
     <!-- Contenido -->
+    <main>
     {% block content %} 
     {% endblock %}
+    </main>
 
     {% block 'footer' %}
     {% include 'includes/footer.html' %}
@@ -49,6 +53,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
     {% block js %} 
     {% endblock %}
     <!-- Option 2: Separate Popper and Bootstrap JS -->

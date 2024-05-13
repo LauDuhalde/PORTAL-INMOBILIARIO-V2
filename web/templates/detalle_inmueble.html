@@ -11,29 +11,40 @@
       <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-primary">Iniciar sesión</a>
   </div>
   {%else%}
-  <div class="row">
-      <div class="col-md-6">
-          <div class="frame" style="width: 100%; height: 100%;">
-              <img src="{{ inmueble.imagen.url }}" alt="{{ inmueble.nombre }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-      </div>
-      <div class="col-md-6">
-          <h1 class="highlight">{{ inmueble.nombre }}</h1>
-          <p>{{ inmueble.descripcion }}</p>
-          <p>{{inmueble.comuna}}</p>
-          <p>Precio arriendo: ${{ inmueble.precio }}</p>
-          {% if user.tipo_usuario == 'arrendatario' %}
-            <a href="{% url 'crear_solicitud_arriendo' inmueble.id %}">Crear Solicitud de Arriendo</a>
-          {% else %}
-          <p>{% if inmueble.disponible %}
-                Disponible
-            {% else %}
-                No Disponible
-            {% endif %}
-          </p>
-          {% endif %}
-      </div>
-  </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="frame" style="width: 100%; height: 100%;">
+            <img src="{{ inmueble.imagen.url }}" alt="{{ inmueble.nombre }}" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
+    <div class="col-md-6">
+        {% if user.tipo_usuario == 'arrendatario' %}
+        <a class="btn btn-custom mb-3" href="{% url 'crear_solicitud_arriendo' inmueble.id %}">Crear Solicitud de Arriendo</a>
+        {% endif %}
+        {% if user.tipo_usuario == 'arrendador' and user == inmueble.arrendador %}
+            <a class="btn btn-secondary mb-3" href="{% url 'editar_inmueble' inmueble.id %}" onclick="return confirm('¿editar?');">Editar Inmueble</a>
+            <a class ="btn btn-danger mb-3" href="{% url 'eliminar_inmueble' inmueble.id %}" onclick="return confirm('¿quieres eliminar?');">Eliminar Inmueble</a>
+        {% endif %}
+        <h1 class="highlight">{{ inmueble.nombre }}</h1>
+        {% if inmueble.disponible %}
+            <p class="text-success fw-bold">{{ inmueble.tipo_inmueble|capfirst }} Disponible</p>
+        {% else %}
+        <p class="text-danger fw-bold">{{inmueble.tipo_inmueble}} No Disponible</p>
+        {% endif %}
+        </p>
+        <p>{{ inmueble.descripcion }}</p>
+        <p>Precio arriendo: ${{ inmueble.precio }}</p>
+        <p><i class="fa-solid fa-map-location-dot"></i> {{inmueble.comuna}}</p>
+        <p>Direccion: {{inmueble.direccion}}</p>
+        <p>M2 construidos: {{inmueble.m2_construidos}}</p>
+        <p>M2 terreno: {{inmueble.m2_terreno}}</p>
+        <p>{{ inmueble.cantidad_habitaciones|default_if_none:"Sin" }} {{ inmueble.cantidad_habitaciones|pluralize:"habitación,habitaciones" }}</p>
+        <p>{{ inmueble.cantidad_banios|default_if_none:"Sin" }} {{ inmueble.cantidad_banios|pluralize:"baño,baños" }}</p>
+        <p>{{ inmueble.cantidad_estacionamientos|default_if_none:"Sin" }} {{ inmueble.cantidad_estacionamientos|pluralize:"estacionamiento,estacionamientos" }}</p>
+
+
+    </div>
+</div>
   {%endif%}
 </section>
 {% endblock %}

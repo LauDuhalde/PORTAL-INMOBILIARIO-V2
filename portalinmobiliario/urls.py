@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from web.views import registro_usuario,index, detalle_inmueble, crear_solicitud_arriendo, success, mi_perfil, obtener_comunas,iniciar_sesion
+from web.views import *
 0
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls.static import static
@@ -26,14 +26,23 @@ urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('registro/', registro_usuario, name='registro_usuario'),
-    #path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('login/', iniciar_sesion, name='login'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    #path('login/', iniciar_sesion, name='login'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('detalle_inmueble/<int:id>/', detalle_inmueble, name='detalle_inmueble'),
     path('crear_solicitud/<int:inmueble_id>/', crear_solicitud_arriendo, name='crear_solicitud_arriendo'),
     path('success/', success, name="success"),
     path('mi_perfil/', mi_perfil, name="mi_perfil"),
     path('obtener_comunas/', obtener_comunas, name='obtener_comunas'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('editar_perfil/', editar_perfil, name='editar_perfil'),
+    path('inmueble/<int:id>/editar_inmueble',actualizar_inmueble, name='editar_inmueble'),
+    path('inmueble/<int:id>/eliminar_inmueble',eliminar_inmueble, name='eliminar_inmueble'),
+    path('ingresar_inmueble/', crear_inmueble, name='ingresar_inmueble'),
+    path('cambiar_estado_solicitud/<int:solicitud_id>/', cambiar_estado_solicitud, name='cambiar_estado_solicitud'),
+    path('solicitudes/', solicitudes_arrendador, name='solicitudes_arrendador'),
+    
+    
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Solicitudes{% endblock %}
+{% block content %}
+<section id="solicitudes" class="container p-5  border rounded mb-5">
+<h1>Solicitudes Recibidas</h1>
+<ul>
+    {% for solicitud in solicitudes %}
+    <li>
+        <p>Arrendatario: {{ solicitud.arrendatario }}</p>
+        <p>Inmueble: {{ solicitud.inmueble }}</p>
+        <p>Mensaje: {{ solicitud.mensaje }}</p>
+        <p>Fecha: {{ solicitud.fecha_solicitud }}</p>
+        <p>Estado: {{ solicitud.estado }}</p>
+        <p>Actualizada: {{solicitud.fecha_modificado}}
+    </li>
+    {% empty %}
+    <li>No hay solicitudes recibidas.</li>
+    {% endfor %}
+</ul>
+</section>
+   
+
+
+{% endblock %}

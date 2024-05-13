@@ -1,47 +1,53 @@
 /* Estilos para el cuerpo de la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Fondo gris claro */
-    color: #333; /* Texto oscuro */
-  }
-  
-  /* Estilos para la barra de navegación */
-  .bg-custom {
-    background-color: #4caf50; /* Verde */
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100dvh; */
+}
 
-  .bg-custom-perfil{
-    background-color: #8B4513;
-  }
-  
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #fff; /* Texto blanco */
-  }
-  
-  /* Estilos para las tarjetas (cards) */
-  .card {
-    background-color: #fff; /* Fondo blanco */
-    border: 1px solid #ddd; /* Borde gris */
-  }
-  
-  .card-title {
-    color: #4caf50; /* Texto verde */
-  }
-  
-  .card-text {
-    color: #666; /* Texto gris oscuro */
-  }
-  
-  /* Estilos para los botones */
-  .btn-custom {
-    background-color: #4caf50; /* Fondo verde */
-    border-color: #4caf50; /* Borde verde */
-    color: #fff; /* Texto blanco */
-  }
-  
-  .btn-custom:hover {
-    background-color: #388e3c; /* Fondo verde oscuro al pasar el mouse */
-    border-color: #388e3c; /* Borde verde oscuro al pasar el mouse */
-  }
-  
+/* main {
+  flex-grow: 1;
+} */
+
+/* Estilos para la barra de navegación */
+.bg-custom {
+  background-color: #4caf50; /* Verde */
+}
+
+.bg-custom-perfil {
+  background-color: #8b4513;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #fff; /* Texto blanco */
+}
+
+/* Estilos para las tarjetas (cards) */
+.card {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ddd; /* Borde gris */
+}
+
+.card-title {
+  color: #4caf50; /* Texto verde */
+}
+
+.card-text {
+  color: #666; /* Texto gris oscuro */
+}
+
+/* Estilos para los botones */
+.btn-custom {
+  background-color: #4caf50; /* Fondo verde */
+  border-color: #4caf50; /* Borde verde */
+  color: #fff; /* Texto blanco */
+}
+
+.btn-custom:hover {
+  background-color: #388e3c; /* Fondo verde oscuro al pasar el mouse */
+  border-color: #388e3c; /* Borde verde oscuro al pasar el mouse */
+}
