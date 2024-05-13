@@ -278,7 +278,9 @@ No permite administración de éstas.
 ## Problemas o Dificultades al Desarrollar el Sitio Web
 
 <details><summary>Conseguir que el modelo de Usuario herede correctamente de la clase AbstractUser para no repetir campos y poder crear el usuario correctamente.</summary>
-La creación del usuario se solucionó con un formulario personalizado, pero formulario de edición quedó con mensaje que indica que no se puede manipular la contraseña.
+La creación del usuario se solucionó con un formulario y administración de usuarios personalizados, pero formulario de edición quedó con mensaje que indica que no se puede manipular la contraseña.
+
+![Modulo administración](https://github.com/LauDuhalde/PORTAL-INMOBILIARIO-V2/blob/main/Hitos/hito5/CustomUserAdmin.png)
 
 ![Formulario CustomUserCreationForm](https://github.com/LauDuhalde/PORTAL-INMOBILIARIO-V2/blob/main/Hitos/hito5/CustomUserCreationForm.png)
 
